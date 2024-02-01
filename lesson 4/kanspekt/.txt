@@ -1,0 +1,101 @@
+Java For sikl operatori
+
+Navbatdagi takrorlash operatori bu for sikli hisoblanadi. For ifodasi parametrga dastlabki qiymat berish, shartli ifoda, parameter qiymatini oshirish/kamaytirish kabi qismlarni o’z ichiga oladi, shuning uchun for ifodasi qisqaroq va kodni analiz qilish uchun juda qulay. Sintaksisi quyidagicha:
+
+for (parametrga dastlabki qiymat berish; shartli ifoda; parameter qiymatini o’zgartirish)
+{
+     // sikl tanasi
+}
+Yuqoridagi sintaksisning qismlarini birma-bir tahlil qilib chiqamiz.
+
+Parametrga dastlabki qiymat berish. Ushbu ifoda sikl parametrining dastlabki qiymatini aniqlab beradi. Masalan: int i = 1;
+Shartli ifodada sikl parametri tekshiriladi. Agar shartli ifoda qanoatlantirilsa, sikl tanasi ishga tushadi, aks holda sikl to’xtaydi. Masalan: i <= 10;
+Parameter qiymatini o’zgartirish. Ushbu qismda sikl parametri qiymati o’zgartiriladi: oshiriladi yoki kamaytiriladi. Agar sikl qiymati o’zgarmasa, vas hart qanoatlansa sikl cheksiz ishlaydi. Masalan: i++;
+Quyidagi misol for operatorini tushunish uchun oson yordam beradi:
+
+public static void main(String[] args)
+    {
+        for (int i = 1; i <= 10; i++) {
+            System.out.println(i);
+        }
+    }
+Ekranga quyidagilar chop etiladi:
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+Quyidagi kodni esa qadamma-qadam tahlil qilamiz.
+
+public static void main(String args[])
+    {
+        for (int i = 1; i <= 5; i++)
+            System.out.println("Hello World");
+    }
+Ekranga quyidagi xabarlar chop etiladi:
+
+Hello World
+Hello World
+Hello World
+Hello World
+Hello World
+Endi tahlil qilamiz:
+
+Dastur ishga tushadi.
+i sikl parametri dastlabki qiymati 1 ni oladi
+Shart tekshiriladi. 1 <= 5 shart true qaytaradi.
+"Hello World" xabari 1-marta chop etiladi.
+i = 2 qiymatga erishadi.
+Shart tekshiriladi. 2 <= 5 shart true qaytaradi.
+"Hello World" xabari 2-marta chop etiladi.
+i = 3 qiymatga erishadi.
+Shart tekshiriladi. 3 <= 5 shart true qaytaradi.
+"Hello World" xabari 3-marta chop etiladi.
+i = 4 qiymatga erishadi.
+Shart tekshiriladi. 4 <= 5 shart true qaytaradi.
+"Hello World" xabari 4-marta chop etiladi.
+i = 5 qiymatga erishadi.
+Shart tekshiriladi. 5 <= 5 shart true qaytaradi.
+"Hello World" xabari 5-marta chop etiladi.
+i = 6 qiymatga erishadi.
+Shart tekshiriladi. 6 <= 5 shart false qaytaradi.
+Sikl to’xtaydi. Dastur tugaydi.
+Garchi sikl parametrini 1 qiymatga oshirish yoki kamaytirish (i++ yoki i--) ifodasi eng ko’p ishlatilsada, parametrni turli usullar bilan o’zgartirish mumkin. Masalan ikkita son orasidagi faqat juft sonlarni yoki faqat toq sonlarni chop etish uchun sikl parametrini 2 ga oshiriladi. Xuddi quyidagicha:
+
+public static void main(String[] args)
+    {
+        for (int i = 2; i <= 10; i+=2) {
+            System.out.println(i);
+        }
+    }
+Ekranga 2 dan 10 gacha bo’lgan juft sonlar chop etiladi:
+
+2
+4
+6
+8
+10
+Quyidagi kod esa 1 dan 100 gacha bo’lgan 2 ga va 3 ga qoldiqsiz bo’linadigan sonlarni chop etadi:
+
+public static void main(String[] args)
+    {
+        for (int i = 1; i <= 100; i++) {
+           if(i % 2 == 0 && i % 3 == 0)
+	         System.out.println(i);
+        }
+    }
+Endi kodni optimallashtiramiz, ya’ni tezroq ishlaydigan qilamiz. 2 ga va 3 ga bo’linadigan son 6 ga bo’linadigan sonlar hisoblanadi. Demak 1 dan 100 bo’lgan sonlar orasida 6 ga bo’linadigan sonlarni topish kifoya. Buning uchun har bir sonni 6 ga bo’linishini tekshirmasdan, siklni 6 sonidan boshlab, parametrni 6 ga oshirib boramiz, shunda sikl har bir 6 ga bo’linadigan sonlar ustidan o’tadi:
+
+public static void main(String[] args)
+    {
+        for (int i = 6; i <= 100; i+=6) {
+            System.out.println(i);
+        }
+    }
+Yuqoridagi kod dastlabki kod bilan aynan bir xil natija beradi.
